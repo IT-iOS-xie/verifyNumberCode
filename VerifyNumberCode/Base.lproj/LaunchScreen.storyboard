@@ -39,12 +39,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="23" y="378"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dHl-9d-kxG">
             <objects>
                 <viewController id="BD5-i6-oct" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zam-6w-Ssx"/>
+                        <viewControllerLayoutGuide type="bottom" id="JV0-Z3-kbw"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Y8Q-NO-Bv4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

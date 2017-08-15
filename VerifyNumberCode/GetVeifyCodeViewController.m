@@ -85,7 +85,7 @@
     
     [self.reacquireBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     
-    [self.reacquireBtn addTarget:self action:@selector(getNumBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.reacquireBtn addTarget:self action:@selector(reacquireClick) forControlEvents:UIControlEventTouchUpInside];
     
     [self getNumBtnAction];
     
@@ -101,7 +101,7 @@
     
     [self.ensureBtn setTitle:@"确定" forState:UIControlStateNormal];
     
-    
+    self.reacquireBtn.userInteractionEnabled = NO;
 }
 
 
@@ -124,13 +124,17 @@
             if (second >= 0) {
                 [_reacquireBtn setTitle:[NSString stringWithFormat:@"%ld秒后重新获取",second] forState:UIControlStateNormal];
                 second--;
+                
+                
             }
             else
             {
                 //这句话必须写否则会出问题
                 dispatch_source_cancel(timer);
-                [_reacquireBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+                [_reacquireBtn setTitle:@"重新获取验证码" forState:UIControlStateNormal];
                 [_reacquireBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+                
+                _reacquireBtn.userInteractionEnabled = YES;
             }
         });
     });
@@ -139,10 +143,13 @@
     
     
 }
-/// 重新获取action
+/// 点击按钮
 -(void)reacquireClick{
-
+   
+    _reacquireBtn.userInteractionEnabled = NO;
     [self getNumBtnAction];
+    
+    NSLog(@"重新获取验证码");
 
 }
 
